@@ -19,22 +19,21 @@ function TableBody(props) {
         <td>{row.job}</td>
       </tr>
     );
-   }
-  );
+  });
   return (
-      <tbody>
-        {rows}
-       </tbody>
-   );
+    <tbody>
+      {rows}
+    </tbody>
+  );
 }
 
 function Table(props) {
-    return (
-      <table>
-        <TableHeader />
-        <TableBody characterData={props.characterData} />
-      </table>
-    )
+  return (
+    <table>
+      <TableHeader />
+      <TableBody characterData={props.characterData} />
+    </table>
+  );
 }
 
 export default Table;
