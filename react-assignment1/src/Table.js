@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TableHeader()  {
+function TableHeader() {
   return (
     <thead>
       <tr>
@@ -15,7 +15,7 @@ function TableBody(props) {
   const rows = props.characterData.map((row, index) => {
     return (
       <tr key={index}>
-        <td>{row.name}</td>         
+        <td>{row.name}</td>
         <td>{row.job}</td>
       </tr>
     );
