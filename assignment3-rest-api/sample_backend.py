@@ -39,7 +39,7 @@ users = {
 def hello_world():
     return 'Hello, World!'
 
-@app.route('/users', methods=['GET', 'POST'])
+@app.route('/users', methods=['GET', 'POST', 'DELETE'])
 def get_users():
     if request.method == 'GET':
         search_username = request.args.get('name')
@@ -53,6 +53,15 @@ def get_users():
     elif request.method == 'POST':
         userToAdd = request.get_json()
         users['users_list'].append(userToAdd)
+        resp = jsonify(success=True)
+        # resp.status_code = 200
+        # Optionally, you can always set a response code
+        # 200 is the default code for a normal response
+        return resp
+    elif request.method == 'DELETE':
+        # Need to send whole user to the request
+        userToDelete = request.get_json()
+        users['users_list'].remove(userToDelete)
         resp = jsonify(success=True)
         # resp.status_code = 200
         # Optionally, you can always set a response code
