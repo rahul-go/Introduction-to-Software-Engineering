@@ -5,39 +5,41 @@ from flask import request
 app = Flask(__name__)
 
 users = {
-    'users_list' :
+    'users_list':
     [
-        { 
+        {
             'id': 'xyz789',
-            'name' : 'Charlie',
+            'name': 'Charlie',
             'job': 'Janitor',
         },
         {
-            'id': 'abc123', 
+            'id': 'abc123',
             'name': 'Mac',
             'job': 'Bouncer',
         },
         {
-            'id': 'ppp222', 
+            'id': 'ppp222',
             'name': 'Mac',
             'job': 'Professor',
-        }, 
+        },
         {
-            'id': 'yat999', 
+            'id': 'yat999',
             'name': 'Dee',
             'job': 'Aspring actress',
         },
         {
-            'id': 'zap555', 
+            'id': 'zap555',
             'name': 'Dennis',
             'job': 'Bartender',
         }
     ]
 }
 
+
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
+
 
 @app.route('/users', methods=['GET', 'POST', 'DELETE'])
 def get_users():
@@ -80,6 +82,7 @@ def get_users():
         # Optionally, you can always set a response code
         # 200 is the default code for a normal response
         return resp
+
 
 @app.route('/users/<id>')
 def get_user(id):
